@@ -1,6 +1,6 @@
 #!/bin/bash
 
-src=~/Dropbox/dotfiles
+src=~/dotfiles
 
 for app in $src/*; do 
     if [ $(basename $app) == $(basename $0) ]; then continue; fi
