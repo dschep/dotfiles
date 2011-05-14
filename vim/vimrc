@@ -1,0 +1,115 @@
+set nocompatible
+
+
+"""
+""" Key mappings
+"""
+" esc-esc in normal mode to clear search highlight
+nnoremap <ESC><ESC> :noh<CR>
+" bind F2 to toggle paste mode
+set pastetoggle=<F2>
+" toggle line numberings with F3
+nnoremap <F3> :set number!<CR>
+" copy and paste to system clipboard
+noremap <A-y> "+y
+noremap <A-p> "+p
+noremap <A-P> "+P
+" make F5 save and execute script
+"   on unix: based off of its shebang line
+"   on windows: by opening it (works for .py etc)
+if has("unix")
+    nnoremap <F5> :exe("if match(getline(1),'^\#!')==0\nw\|exe('!'.getline(1)[2:].' %')\nen")<CR>
+elseif has("win32")
+    nnoremap <F5> :w\|!%<CR>
+endif
+" fake verymagic
+nnoremap / /\v
+cnoremap s/ s/\v
+
+
+"""
+""" Behaviour
+"""
+" normal backspace
+set backspace=indent,eol,start
+" mouse support
+if version >= 500
+    set mouse=a
+endif
+" regex magic
+set magic
+" use incremental search
+set incsearch
+" quickly move cursor to matching bracket when added
+set showmatch
+
+
+"""
+""" Appearance
+"""
+" show position at all times
+set ruler
+" dark background for reverse video terminals
+set bg=dark
+" Syntax hilighting
+syn on
+" more syntax for python
+let python_highlight_all = 1
+" hilight search results
+set hlsearch
+" set terminal title
+set title
+
+
+"""
+""" File Options
+"""
+" full filetype detection
+filetype plugin indent on
+" use real tabs for makefiles
+au BufRead,BufNewFile Makefile,makefile,*.mk set noexpandtab
+" detect cuda files
+au BufRead,BufNewFile *.cu set ft=cuda
+" use modelines
+set modeline
+
+
+"""
+""" Text style options
+"""
+" 4 space tabs 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+" disable mixing spaces and \t
+set softtabstop=0
+" set wrapping text width
+set textwidth=79
+
+
+"""
+""" Misc.
+"""
+"set encoding=utf-8
+" add custom spellings
+if version >= 700
+    set spellfile=~/.vim/spellfile.add
+endif
+
+
+"""
+""" gui options
+"""
+if has("gui_running")
+    " emulate reverse video
+    highlight Normal guifg=white guibg=black
+    " get rid of fluff (menu & toolbar)
+    set guioptions-=m
+    set guioptions-=T
+endif
+" set fonts
+if has("gui_gtk2")
+    set guifont=Inconsolata\ 12
+elseif has("gui_win32")
+    set guifont=Consolas:h10
+endif

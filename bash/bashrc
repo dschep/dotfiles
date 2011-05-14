@@ -1,0 +1,167 @@
+# do nothing for noninteractive environments
+#[ -z "$PS1" ] && return
+[[ $- != *i* ]] && return
+
+
+###choose editor
+if type -P vim &> /dev/null; then
+    export EDITOR=vim
+    alias vi=vim
+elif type -P vi &> /dev/null; then
+    export EDITOR=vi
+    alias vim=vi
+elif type -P emacs &> /dev/null; then
+    export EDITOR=emacs
+    alias vim=emacs
+    alias vi=emacs
+    echo 'Editor set to emacs. Make sure to use/setup <m-x>viper'
+else
+    echo 'No suitable editor found.'
+fi
+
+###choose pager
+if type -P less &> /dev/null; then
+    export PAGER=less
+else
+    export PAGER=more
+    alias less=more
+fi
+
+
+#### Vi mode & emacs-style clear
+set -o vi
+bind -m vi-insert "\C-l":clear-screen
+
+### COLORS
+black='\e[30m'
+red='\e[31m'
+green='\e[32m'
+yellow='\e[33m'
+blue='\e[34m'
+magenta='\e[35m'
+cyan='\e[36m'
+white='\e[37m'
+
+bg_black='\e[40m'
+bg_red='\e[41m'
+bg_green='\e[42m'
+bg_yellow='\e[43m'
+bg_blue='\e[44m'
+bg_magenta='\e[45m'
+bg_cyan='\e[46m'
+bg_white='\e[47m'
+
+#none='\e[00m'
+bold='\e[01m'
+underscore='\e[04m'
+blink='\e[05'
+reverse='\e[07'
+concealed='\e[08'
+
+reset='\e[m'
+
+#### Prompt
+#defaults for fancy prompt
+function ps1_dir_color {
+    case $PWD/ in
+        $HOME/*) echo -e $blue ;;
+        *) echo -e $reset ;;
+    esac
+}
+
+if [ $UID -eq 0 ]; then ## root
+    ps1_host_color=$red
+elif [ -n "$SSH_CONNECTION" ]; then ## SSH user
+    ps1_host_color=$yellow
+else
+    ps1_host_color=$green
+fi
+
+_w='\w'
+_W='\W'
+
+
+# load custom fancy prompt stuff to override the prev 4 variables/functions
+if [ -f ~/.bashrc.ps1-overrides ]; then
+    . ~/.bashrc.ps1-overrides
+fi
+
+
+#actual prompt (explicitly set black [andbold] background for white teminals)
+#staticaly set host color, dynamicaly set dir color
+PS1="\[$bold$bg_black$ps1_host_color\]\u@\h \[\$(ps1_dir_color)\]$_W \$\[$reset\] "
+
+# terminal title
+case $TERM in
+    xterm*|rxvt*|Eterm) PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"' ;;
+    screen) PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"' ;;
+esac
+
+
+
+## setup directory shortcuts
+if [ -f ~/.bashrc.dirshortcuts ]; then
+    for dir in $(grep -E -v '^#' ~/.bashrc.dirshortcuts); do
+        name=${dir%=*}
+        dest=${dir#*=}
+
+        eval $name=$dest
+        alias c$name='cd $'$name
+    done
+fi
+
+
+#for ls:
+eval $(dircolors -b)
+
+
+#date utilities
+alias today='date +%F'
+alias now="date +%FT%T%$(date --help | grep %:::z > /dev/null && echo :::)z"
+
+#default behaviours
+alias grep='grep --color=auto'
+alias ls='ls -phB --color=auto --time-style=long-iso'
+alias df='df -h'
+
+#common mistakes
+alias cd..='cd ..'
+
+#compensate for missing software
+if ! type -P feh &> /dev/null; then #use whatever gnome wants when no feh
+    alias feh=gnome-open
+    # TODO, use gnome-open,xdg-open, etc??
+fi
+
+#short cuts
+alias c=cd
+alias ,='cd -'
+alias ..='cd ..'
+
+alias pu=pushd
+alias po=popd
+
+alias l=ls
+alias ll='ls -l'
+alias la='ls -la'
+
+alias v=$EDITOR
+
+alias r=rm
+alias rr='rm -r'
+
+alias x=dtrx
+
+
+# gui man viewer!
+function gman {
+    tmpfile=$(mktemp)
+    man -t $1 > $tmpfile
+    evince --sm-disable $tmpfile
+    rm $tmpfile
+}
+
+
+if [ -f ~/.bashrc.local_ext ]; then
+    . ~/.bashrc.local_ext
+fi
