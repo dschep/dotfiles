@@ -1,8 +1,8 @@
 vbell off
 startup_message off
 
-bindkey "^h" prev
-bindkey "^l" next
+bindkey "^j" prev
+bindkey "^k" next
 
 # default on gray
 #caption always "%{= Kd}%-w%{+bu}%n %t%{-}%+w %-="
