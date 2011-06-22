@@ -2,7 +2,7 @@ vbell off
 startup_message off
 
 bindkey "^h" prev
-bindkey "^k" next
+bindkey "^l" next
 
 # default on gray
 #caption always "%{= Kd}%-w%{+bu}%n %t%{-}%+w %-="
