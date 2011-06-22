@@ -1,0 +1,15 @@
+vbell off
+startup_message off
+
+bindkey "^h" prev
+bindkey "^k" next
+
+# default on gray
+#caption always "%{= Kd}%-w%{+bu}%n %t%{-}%+w %-="
+# default on gray (on blue for active)
+caption always "%{= Kd}%-w%{+b Bd}%n %t%{-}%+w %-="
+
+termcapinfo xterm*|rxvt*|kterm*|Eterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+defhstatus "screen ^E (^Et) | $USER@^EH"
+
+screen -t $ 0 bash
