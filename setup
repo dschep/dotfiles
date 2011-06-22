@@ -4,6 +4,7 @@ src=~/dotfiles
 
 for app in $src/*; do 
     if [ $(basename $app) == $(basename $0) ]; then continue; fi
+    if [ $(basename $app) == README ]; then continue; fi
 
     while true; do
         read -p "Install dot files for $(basename $app)? (y/n) " yn
