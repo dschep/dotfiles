@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/home/dschep/sw/stow/disper-0.2.3/bin'
-let g:netrw_dirhist_2='/home/dschep/Downloads/Educ_Subcommittee_List/word'
-let g:netrw_dirhist_3='/home/dschep/Dropbox/dotfiles/vim/vim'
-let g:netrw_dirhist_4='/home/dschep'
