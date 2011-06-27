@@ -22,6 +22,9 @@ if has("unix")
 elseif has("win32")
     nnoremap <F5> :w\|!%<CR>
 endif
+" ctrl h/l to change tabs
+map <C-h> :tabp<cr>
+map <C-l> :tabn<cr>
 " fake verymagic
 nnoremap / /\v
 cnoremap s/ s/\v
