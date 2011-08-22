@@ -7,3 +7,6 @@
 [submodule "vim/vim/bundle/vim-fugitive"]
 	path = vim/vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
+[submodule "vim/vim/bundle/delmitmate"]
+	path = vim/vim/bundle/delmitmate
+	url = git://github.com/Raimondi/delimitMate.git
