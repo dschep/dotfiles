@@ -26,8 +26,8 @@ endif
 map <C-h> :tabp<cr>
 map <C-l> :tabn<cr>
 " fake verymagic
-nnoremap / /\v
-cnoremap s/ s/\v
+"nnoremap / /\v
+"cnoremap s/ s/\v
 
 
 """
