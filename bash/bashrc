@@ -152,6 +152,8 @@ alias rr='rm -r'
 
 alias x=dtrx
 
+alias s=ssh
+
 
 # gui man viewer!
 function gman {
@@ -159,10 +161,6 @@ function gman {
     man -t $1 > $tmpfile
     evince --sm-disable $tmpfile
     rm $tmpfile
-}
-
-function s {
-    screen -t $1 ssh $1
 }
 
 
