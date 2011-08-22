@@ -13,3 +13,6 @@
 [submodule "vim/vim/bundle/ack.vim"]
 	path = vim/vim/bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
+[submodule "vim/vim/bundle/pyflakes-vim"]
+	path = vim/vim/bundle/pyflakes-vim
+	url = git://github.com/kevinw/pyflakes-vim.git
