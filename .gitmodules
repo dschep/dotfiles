@@ -10,3 +10,6 @@
 [submodule "vim/vim/bundle/delmitmate"]
 	path = vim/vim/bundle/delmitmate
 	url = git://github.com/Raimondi/delimitMate.git
+[submodule "vim/vim/bundle/ack.vim"]
+	path = vim/vim/bundle/ack.vim
+	url = git://github.com/mileszs/ack.vim.git
