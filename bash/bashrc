@@ -150,7 +150,11 @@ alias v=$EDITOR
 alias r=rm
 alias rr='rm -r'
 
-alias x=dtrx
+if [ $(type -p dtrx) ]; then
+    alias x=dtrx
+else
+    alias x='tar xvf'
+fi
 
 alias s=ssh
 
