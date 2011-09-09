@@ -5,7 +5,7 @@
 
 ###choose editor
 if type -P vim &> /dev/null; then
-    export EDITOR=vim
+    export EDITOR='vim -p'
     alias vi=vim
 elif type -P vi &> /dev/null; then
     export EDITOR=vi
