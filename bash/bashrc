@@ -89,6 +89,10 @@ fi
 # bash completion
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+elif [ -f /etc/bash_completion.d/git ]; then
+    . /etc/bash_completion.d/git
+else
+    function __git_ps1 { true; }
 fi
 
 # __git_ps1 options
