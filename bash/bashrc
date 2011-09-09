@@ -86,10 +86,18 @@ if [ -f ~/.bashrc.ps1-overrides ]; then
     . ~/.bashrc.ps1-overrides
 fi
 
+# bash completion
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+# __git_ps1 options
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 #actual prompt (explicitly set black [andbold] background for white teminals)
 #staticaly set host color, dynamicaly set dir color
-PS1="\[$bold$bg_black$ps1_host_color\]\u@\h \[\$(ps1_dir_color)\]$_W\$(git branch 2>/dev/null | sed -rn 's/^\* (.*)$/[\1]/p') \$\[$reset\] "
+PS1="\[$bold$bg_black$ps1_host_color\]\u@\h \[\$(ps1_dir_color)\]$_W\$(__git_ps1 '[%s]') \$\[$reset\] "
 
 # terminal title
 case $TERM in
