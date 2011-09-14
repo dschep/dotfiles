@@ -79,6 +79,7 @@ filetype plugin indent on
 au BufRead,BufNewFile Makefile,makefile,*.mk set noexpandtab
 " detect cuda files
 au BufRead,BufNewFile *.cu set ft=cuda
+au BufRead,BufNewFile *.json set ft=json 
 " use modelines
 set modeline
 

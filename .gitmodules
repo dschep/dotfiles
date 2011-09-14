@@ -16,3 +16,6 @@
 [submodule "vim/vim/bundle/pyflakes-vim"]
 	path = vim/vim/bundle/pyflakes-vim
 	url = git://github.com/kevinw/pyflakes-vim.git
+[submodule "vim/vim/bundle/json-vim"]
+	path = vim/vim/bundle/json-vim
+	url = git://github.com/vim-scripts/JSON.vim.git
