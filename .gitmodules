@@ -1,9 +1,6 @@
 [submodule "vim/vim/bundle/vim-pathogen"]
 	path = vim/vim/bundle/vim-pathogen
 	url = git://github.com/tpope/vim-pathogen.git
-[submodule "vim/vim/bundle/nerdtree"]
-	path = vim/vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
 [submodule "vim/vim/bundle/vim-fugitive"]
 	path = vim/vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
@@ -19,3 +16,9 @@
 [submodule "vim/vim/bundle/json-vim"]
 	path = vim/vim/bundle/json-vim
 	url = git://github.com/vim-scripts/JSON.vim.git
+[submodule "vim/vim/bundle/FuzzyFinder"]
+	path = vim/vim/bundle/FuzzyFinder
+	url = git://github.com/vim-scripts/FuzzyFinder.git
+[submodule "vim/vim/bundle/L9"]
+	path = vim/vim/bundle/L9
+	url = git://github.com/vim-scripts/L9.git

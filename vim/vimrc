@@ -34,6 +34,8 @@ map <C-l> :tabn<cr>
 " fake verymagic
 "nnoremap / /\v
 "cnoremap s/ s/\v
+" FuzzyFinder file shortcut
+nnoremap ff :FufFile<cr>
 
 
 """
@@ -123,3 +125,9 @@ if has("gui_gtk2")
 elseif has("gui_win32")
     set guifont=Consolas:h10
 endif
+
+
+"""
+""" open FuzzyFinder [file] when entering empty buffers
+"""
+autocmd BufEnter {} FufFile 
