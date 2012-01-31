@@ -104,9 +104,16 @@ fi
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 
+function retcode () {
+    RET=$?
+    if [ $RET -ne 0 ]; then
+        echo "↳$RET "
+    fi
+}
+
 #actual prompt (explicitly set black [andbold] background for white teminals)
 #staticaly set host color, dynamicaly set dir color
-PS1="\[$bold$bg_black$ps1_host_color\]\u@\h \[\$(ps1_dir_color)\]$_W\$(__git_ps1 '[%s]') \$\[$reset\] "
+PS1="\[$bold$red\]\$(retcode)\[$bold$bg_black$ps1_host_color\]\u@\h \[\$(ps1_dir_color)\]$_W\$(__git_ps1 '[%s]'|sed -e 's/ //') \$\[$reset\] "
 
 # terminal title
 case $TERM in
