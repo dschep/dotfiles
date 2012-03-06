@@ -16,9 +16,6 @@
 [submodule "vim/vim/bundle/json-vim"]
 	path = vim/vim/bundle/json-vim
 	url = git://github.com/vim-scripts/JSON.vim.git
-[submodule "vim/vim/bundle/FuzzyFinder"]
-	path = vim/vim/bundle/FuzzyFinder
-	url = git://github.com/vim-scripts/FuzzyFinder.git
-[submodule "vim/vim/bundle/L9"]
-	path = vim/vim/bundle/L9
-	url = git://github.com/vim-scripts/L9.git
+[submodule "vim/vim/bundle/ctrlp"]
+	path = vim/vim/bundle/ctrlp
+	url = git://github.com/kien/ctrlp.vim.git
