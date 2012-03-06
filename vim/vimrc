@@ -135,3 +135,10 @@ endif
 """ doesn't focus right
 """
 "autocmd BufEnter {} CtrlP 
+
+
+"""
+""" plugin options
+"""
+" ctrl-p find version control root:
+let g:ctrlp_working_path_mode = 2
