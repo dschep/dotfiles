@@ -66,6 +66,9 @@ set bg=dark
 syn on
 " more syntax for python
 let python_highlight_all = 1
+" hilight long lines
+highlight LongLine gui=underline cterm=underline
+match LongLine /\%>79v.\+/
 " hilight search results
 set hlsearch
 " set terminal title
