@@ -58,8 +58,8 @@ set showmatch
 """
 """ Appearance
 """
-" show position at all times
-set ruler
+" 256 colors
+set t_Co=256
 " dark background for reverse video terminals
 set bg=dark
 " Syntax hilighting
