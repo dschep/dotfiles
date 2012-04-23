@@ -73,6 +73,10 @@ match LongLine /\%>79v.\+/
 set hlsearch
 " set terminal title
 set title
+" always show status line (for vim-powerline)
+set laststatus=2
+" don't show mode (shown in vim-powerline)
+set noshowmode
 
 
 """
@@ -142,3 +146,9 @@ endif
 """
 " ctrl-p find version control root:
 let g:ctrlp_working_path_mode = 2
+" ctrl-p save cache
+let g:ctrlp_clear_cache_on_exit = 0
+" ctrl-p much smaller max depth
+let g:ctrlp_max_depth = 10
+" ctrl-p <c-y> opens tab
+let g:ctrlp_open_new_file = 't'
