@@ -1,6 +1,6 @@
 [user]
-	name = Daniel Schep
-	email = dschep@gmail.com
+    name = Daniel Schep
+    email = dschep@gmail.com
 [color]
     diff = auto
     status = auto
