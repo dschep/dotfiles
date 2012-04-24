@@ -34,8 +34,6 @@ map <C-l> :tabn<cr>
 " fake verymagic
 "nnoremap / /\v
 "cnoremap s/ s/\v
-" FuzzyFinder file shortcut
-nnoremap ff :FufFile<cr>
 
 
 """
