@@ -1,0 +1,20 @@
+[user]
+	name = Daniel Schep
+	email = dschep@gmail.com
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[diff]
+    tool = vimdiff
+[merge]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[mergetool]
+    prompt = false
+[alias]
+    tree = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    stat = status -sb
+    last = !bash -c 'git checkout $(git reflog|sed -n -r -e \"s/.*: checkout: moving from (\\S\\S*) to \\S\\S*/\\1/p\"|head -n1)'
+
