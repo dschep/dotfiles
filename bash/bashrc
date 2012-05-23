@@ -1,3 +1,5 @@
+# vim: tw=0
+
 # do nothing for noninteractive environments
 #[ -z "$PS1" ] && return
 [[ $- != *i* ]] && return
@@ -82,9 +84,6 @@ else
     ps1_host_color=$green
 fi
 
-_w='\w'
-_W='\W'
-
 
 # load custom fancy prompt stuff to override the prev 4 variables/functions
 if [ -f ~/.bashrc.ps1-overrides ]; then
@@ -113,7 +112,7 @@ function retcode () {
 
 #actual prompt (explicitly set black [andbold] background for white teminals)
 #staticaly set host color, dynamicaly set dir color
-PS1="\[$bold$red\]\$(retcode)\[$bold$bg_black$ps1_host_color\]\u@\h \[\$(ps1_dir_color)\]$_W\$(__git_ps1 '[%s]'|sed -e 's/ //') \$\[$reset\] "
+PS1="\[$bold$bg_black$red\]\$(retcode)\[$ps1_host_color\]\u@\h \[\$(ps1_dir_color)\]\W\[$magenta\]\$(__git_ps1)\[$white\] \$\[$reset\] "
 
 # terminal title
 case $TERM in
