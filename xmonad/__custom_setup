@@ -1,4 +1,0 @@
-#!/bin/bash
-
-mkdir -p ~/.xmonad
-ln -T -s -i $src/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
