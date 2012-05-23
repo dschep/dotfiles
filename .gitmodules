@@ -10,9 +10,6 @@
 [submodule "vim/vim/bundle/ack.vim"]
 	path = vim/vim/bundle/ack.vim
 	url = git://github.com/mileszs/ack.vim.git
-[submodule "vim/vim/bundle/pyflakes-vim"]
-	path = vim/vim/bundle/pyflakes-vim
-	url = git://github.com/kevinw/pyflakes-vim.git
 [submodule "vim/vim/bundle/json-vim"]
 	path = vim/vim/bundle/json-vim
 	url = git://github.com/vim-scripts/JSON.vim.git
@@ -25,3 +22,6 @@
 [submodule "vim/vim/bundle/MatchTag"]
 	path = vim/vim/bundle/MatchTag
 	url = git://github.com/gregsexton/MatchTag.git
+[submodule "vim/vim/bundle/syntastic"]
+	path = vim/vim/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
