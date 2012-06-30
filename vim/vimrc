@@ -59,7 +59,7 @@ set showmatch
 " 256 colors
 set t_Co=256
 " dark background for reverse video terminals
-set bg=dark
+"set bg=dark
 " Syntax hilighting
 syn on
 " more syntax for python
@@ -75,6 +75,8 @@ set title
 set laststatus=2
 " don't show mode (shown in vim-powerline)
 set noshowmode
+" Zenburrnn
+colors zenburn
 
 
 """
@@ -119,7 +121,7 @@ endif
 """
 if has("gui_running")
     " emulate reverse video
-    highlight Normal guifg=white guibg=black
+    "highlight Normal guifg=white guibg=black
     " get rid of fluff (menu & toolbar)
     set guioptions-=m
     set guioptions-=T
