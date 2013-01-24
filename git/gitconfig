@@ -1,6 +1,9 @@
 [user]
     name = Daniel Schep
     email = dschep@gmail.com
+[github]
+    user = dschep
+    token = !cat ~/.github-token
 [color]
     diff = auto
     status = auto
