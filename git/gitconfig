@@ -21,3 +21,5 @@
     stat = status -sb
     last = !bash -c 'git checkout $(git reflog|sed -n -r -e \"s/.*: checkout: moving from (\\S\\S*) to \\S\\S*/\\1/p\"|head -n1)'
 
+[core]
+	excludesfile = ~/.gitignore
