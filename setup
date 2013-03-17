@@ -6,7 +6,7 @@ for app in $src/*; do
     if [ $(basename $app) == $(basename $0) ]; then continue; fi
     if [ $(basename $app) == README ]; then continue; fi
 
-    while true; do
+    while [ "$1" == "-i" ]; do
         read -p "Install dot files for $(basename $app)? (y/n) " yn
         case $yn in
             [Yy] | [Yy][Ee][Ss] ) yn=y; break;;
@@ -14,16 +14,16 @@ for app in $src/*; do
             * ) echo "Please answer yes or no.";;
         esac
     done
-    if [ $yn == y ]; then 
+    if [ "$yn" != n ]; then 
         if [ -x $app/__custom_setup ]; then
             src=$app $app/__custom_setup
         else
             for dir_file in $src/$(basename $app)/*; do 
 
                 if [ -d ~/.$(basename $dir_file) ]; then 
-                    rm -r -i ~/.$(basename $dir_file)
+                    rm -r $1 ~/.$(basename $dir_file)
                 fi
-                ln -T -s -i $dir_file ~/.$(basename $dir_file)
+                ln -T -s $1 $dir_file ~/.$(basename $dir_file)
             done
         fi
     fi
