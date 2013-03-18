@@ -1,30 +1,64 @@
-#!/bin/bash
+#!/usr/bin/env python
 
-src=~/dotfiles
+import os
+import shutil
 
-for app in $src/*; do 
-    if [ $(basename $app) == $(basename $0) ]; then continue; fi
-    if [ $(basename $app) == README ]; then continue; fi
+# optparse instead of argparse for older 0 dep compatibility
+from optparse import OptionParser
 
-    while [ "$1" == "-i" ]; do
-        read -p "Install dot files for $(basename $app)? (y/n) " yn
-        case $yn in
-            [Yy] | [Yy][Ee][Ss] ) yn=y; break;;
-            [Nn] | [Nn][Oo] ) yn=n; break;;
-            * ) echo "Please answer yes or no.";;
-        esac
-    done
-    if [ "$yn" != n ]; then 
-        if [ -x $app/__custom_setup ]; then
-            src=$app $app/__custom_setup
-        else
-            for dir_file in $src/$(basename $app)/*; do 
+CWD, _ = os.path.split(os.path.abspath(__file__))
+HOME = os.environ['HOME']
 
-                if [ -d ~/.$(basename $dir_file) ]; then 
-                    rm -r $1 ~/.$(basename $dir_file)
-                fi
-                ln -T -s $1 $dir_file ~/.$(basename $dir_file)
-            done
-        fi
-    fi
-done
+def setup(app, backup, backup_ext, verbose=True):
+    targets = os.listdir(app)
+    for file_ in targets:
+        link = os.path.join(HOME, '.' + file_.replace('__', '/'))
+        target = os.path.join(CWD, app, file_)
+        if not check_link(link, target):
+            if os.path.exists(link):
+                if backup:
+                    if verbose:
+                        print 'backing up {0} to {0}{1}'.format(
+                                link, backup_ext)
+                    shutil.move(link, link + backup_ext)
+
+
+            if verbose:
+                print 'installing {0} to {1}'.format(os.path.join(app, file_),
+                                                     link)
+            os.symlink(target, link)
+
+        elif verbose:
+            print '{0} already installed at {1}'.format(
+                    os.path.join(app, file_), link)
+
+def check_link(link, target):
+    try:
+        return os.readlink(link) == target
+    except OSError:
+        return False
+
+def main():
+    parser = OptionParser()
+    parser.add_option('-a', '--all',
+                      action='store_true', dest='all', default=False,
+                      help='Install all dotfiles')
+    parser.add_option('-q', '--quiet',
+                      action='store_false', dest='verbose', default=True,
+                      help="don't print status messages to stdout")
+    parser.add_option('-b', '--backup',
+                      dest='backup_ext', default='.bak',
+                      metavar='EXT',
+                      help='File extention to append when createing backup')
+
+    (options, args) = parser.parse_args()
+    options.backup = '' != options.backup_ext
+    if options.all:
+       args = [d for d in os.listdir('.') if os.path.isdir(d) and d != '.git']
+
+    for app in args:
+        setup(app, options.backup, options.backup_ext, options.verbose)
+
+
+if __name__ == '__main__':
+    main()
