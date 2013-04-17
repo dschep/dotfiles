@@ -149,8 +149,12 @@ alias now="date +%FT%T%$(date --help | grep %:::z > /dev/null && echo :::)z"
 
 #default behaviours
 alias grep='grep --color=auto'
-alias ls='ls -phB --color=auto --time-style=long-iso'
 alias df='df -h'
+if ls --version 2> /dev/null | grep GNU > /dev/null; then
+    alias ls='ls --indicator-style=slash --human-readable --ignore-backups --color=auto --time-style=long-iso'
+else
+    alias ls='ls -p -h -G'
+fi
 
 #common mistakes
 alias cd..='cd ..'
