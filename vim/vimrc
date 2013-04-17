@@ -124,7 +124,7 @@ if has("gui_running")
     set guioptions-=T
 endif
 " set fonts
-set guifont=Source\ Code\ Pro\ 11
+set guifont=Source\ Code\ Pro
 
 
 """
