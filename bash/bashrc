@@ -105,6 +105,10 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 elif [ -f /etc/bash_completion.d/git ]; then
     . /etc/bash_completion.d/git
+elif [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+    . /usr/local/etc/bash_completion.d/git-prompt.sh
+elif [ -f /usr/local/etc/bash_completion.d/git-completion.sh ]; then
+    . /usr/local/etc/bash_completion.d/git-completion.sh
 else
     function __git_ps1 { true; }
 fi
