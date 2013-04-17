@@ -44,33 +44,38 @@ fi
 set -o vi
 bind -m vi-insert "\C-l":clear-screen
 
+if [ $(uname) == 'Darwin' ]; then
+    color_esc=''
+else
+    color_esc='\e'
+fi
 ### COLORS
-black='\e[30m'
-red='\e[31m'
-green='\e[32m'
-yellow='\e[33m'
-blue='\e[34m'
-magenta='\e[35m'
-cyan='\e[36m'
-white='\e[37m'
+black=$color_esc'[30m'
+red=$color_esc'[31m'
+green=$color_esc'[32m'
+yellow=$color_esc'[33m'
+blue=$color_esc'[34m'
+magenta=$color_esc'[35m'
+cyan=$color_esc'[36m'
+white=$color_esc'[37m'
 
-bg_black='\e[40m'
-bg_red='\e[41m'
-bg_green='\e[42m'
-bg_yellow='\e[43m'
-bg_blue='\e[44m'
-bg_magenta='\e[45m'
-bg_cyan='\e[46m'
-bg_white='\e[47m'
+bg_black=$color_esc'[40m'
+bg_red=$color_esc'[41m'
+bg_green=$color_esc'[42m'
+bg_yellow=$color_esc'[43m'
+bg_blue=$color_esc'[44m'
+bg_magenta=$color_esc'[45m'
+bg_cyan=$color_esc'[46m'
+bg_white=$color_esc'[47m'
 
-#none='\e[00m'
-bold='\e[01m'
-underscore='\e[04m'
-blink='\e[05'
-reverse='\e[07'
-concealed='\e[08'
+#none=$color_esc'[00m'
+bold=$color_esc'[01m'
+underscore=$color_esc'[04m'
+blink=$color_esc'[05'
+reverse=$color_esc'[07'
+concealed=$color_esc'[08'
 
-reset='\e[m'
+reset=$color_esc'[m'
 
 #### Prompt
 #defaults for fancy prompt
