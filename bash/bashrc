@@ -145,7 +145,7 @@ type -p dircolors > /dev/null && eval $(dircolors -b)
 
 #date utilities
 alias today='date +%F'
-alias now="date +%FT%T%$(date --help | grep %:::z > /dev/null && echo :::)z"
+alias now="date +%FT%T"
 
 #default behaviours
 alias grep='grep --color=auto'
