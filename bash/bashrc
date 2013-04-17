@@ -140,7 +140,7 @@ fi
 
 
 #for ls:
-eval $(dircolors -b)
+type -p dircolors > /dev/null && eval $(dircolors -b)
 
 
 #date utilities
