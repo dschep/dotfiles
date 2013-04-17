@@ -82,7 +82,7 @@ reset=$color_esc'[m'
 function ps1_dir_color {
     case $PWD/ in
         $HOME/*) echo -e $blue ;;
-        *) echo -e $reset ;;
+        *) echo -e $white ;;
     esac
 }
 
