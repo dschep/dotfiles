@@ -120,7 +120,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 function retcode () {
     RET=$?
     if [ $RET -ne 0 ]; then
-        echo "↳$RET "
+        echo "↳ $RET "
     fi
 }
 
