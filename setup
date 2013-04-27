@@ -10,7 +10,7 @@ CWD, _ = os.path.split(os.path.abspath(__file__))
 HOME = os.environ['HOME']
 
 def setup(app, backup, backup_ext, verbose=True):
-    targets = os.listdir(app)
+    targets = os.listdir(os.path.join(CWD, app))
     for file_ in targets:
         link = os.path.join(HOME, '.' + file_.replace('__', '/'))
         target = os.path.join(CWD, app, file_)
