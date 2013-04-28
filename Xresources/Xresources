@@ -31,4 +31,5 @@ xterm*faceSize: 10
 URxvt.font:xft:source code pro:medium:size=10
 URxvt.boldFont:xft:source code pro:bold:size=10
 
+URxvt.perl-lib: /home/dschep/.urxvt-perl/
 URxvt.perl-ext-common:  default,tabbed_dschep
