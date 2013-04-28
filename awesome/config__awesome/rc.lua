@@ -45,7 +45,7 @@ beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 awful.util.spawn("awsetbg -f /home/dschep/Pictures/eso0932a.jpg")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -119,8 +119,8 @@ mytaglist.buttons = awful.util.table.join(
                     awful.button({ modkey }, 1, awful.client.movetotag),
                     awful.button({ }, 3, awful.tag.viewtoggle),
                     awful.button({ modkey }, 3, awful.client.toggletag),
-                    awful.button({ }, 4, awful.tag.viewnext),
-                    awful.button({ }, 5, awful.tag.viewprev)
+                    awful.button({ }, 5, awful.tag.viewnext),
+                    awful.button({ }, 4, awful.tag.viewprev)
                     )
 mytasklist = {}
 mytasklist.buttons = awful.util.table.join(
@@ -377,7 +377,7 @@ client.add_signal("manage", function (c, startup)
     if not startup then
         -- Set the windows at the slave,
         -- i.e. put it at the end of others instead of setting it master.
-        -- awful.client.setslave(c)
+        awful.client.setslave(c)
 
         -- Put windows in a smart way, only if they does not set an initial position.
         if not c.size_hints.user_position and not c.size_hints.program_position then
