@@ -45,7 +45,7 @@ beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
 awful.util.spawn("awsetbg -f /home/dschep/Pictures/eso0932a.jpg")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "urxvt"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
