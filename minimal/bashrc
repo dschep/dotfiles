@@ -1,0 +1,4 @@
+. ~/.bashrc
+set -o vi
+bind -m vi-insert "\C-l":clear-screen
+PS1="\[\e[01m\e[40m\e[33m\]\u@\h \[\e[34m\]\W \[\e[37m\]\$\[\e[m\] "
