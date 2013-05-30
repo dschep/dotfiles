@@ -125,14 +125,14 @@ function retcode () {
 }
 function __venv () {
     if ! [ -z "$VIRTUAL_ENV" ]; then
-        echo -e "$magenta($(basename "$VIRTUAL_ENV")) "
+        echo -e "($(basename "$VIRTUAL_ENV")) "
     fi
 }
 VIRTUAL_ENV_DISABLE_PROMPT=true
 
 #actual prompt (explicitly set black [andbold] background for white teminals)
 #staticaly set host color, dynamicaly set dir color
-PS1="\[$bold$bg_black$red\]\$(retcode)\$(__venv)\[$ps1_host_color\]\u@\h \[\$(ps1_dir_color)\]\W\[$magenta\]\$(__git_ps1)\[$white\] \$\[$reset\] "
+PS1="\[$bold$bg_black$red\]\$(retcode)\[$magenta\]\$(__venv)\[$ps1_host_color\]\u@\h \[\$(ps1_dir_color)\]\W\[$magenta\]\$(__git_ps1)\[$white\] \$\[$reset\] "
 
 # terminal title
 case $TERM in
