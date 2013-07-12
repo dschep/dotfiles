@@ -44,62 +44,6 @@ fi
 set -o vi
 bind -m vi-insert "\C-l":clear-screen
 
-if [ $(uname) == 'Darwin' ]; then
-    color_esc=''
-else
-    color_esc='\e'
-fi
-### COLORS
-black=$color_esc'[30m'
-red=$color_esc'[31m'
-green=$color_esc'[32m'
-yellow=$color_esc'[33m'
-blue=$color_esc'[34m'
-magenta=$color_esc'[35m'
-cyan=$color_esc'[36m'
-white=$color_esc'[37m'
-
-bg_black=$color_esc'[40m'
-bg_red=$color_esc'[41m'
-bg_green=$color_esc'[42m'
-bg_yellow=$color_esc'[43m'
-bg_blue=$color_esc'[44m'
-bg_magenta=$color_esc'[45m'
-bg_cyan=$color_esc'[46m'
-bg_white=$color_esc'[47m'
-
-#none=$color_esc'[00m'
-bold=$color_esc'[01m'
-underscore=$color_esc'[04m'
-blink=$color_esc'[05'
-reverse=$color_esc'[07'
-concealed=$color_esc'[08'
-
-reset=$color_esc'[m'
-
-#### Prompt
-#defaults for fancy prompt
-function ps1_dir_color {
-    case $PWD/ in
-        $HOME/*) echo -e $blue ;;
-        *) echo -e $white ;;
-    esac
-}
-
-if [ $UID -eq 0 ]; then ## root
-    ps1_host_color=$red
-elif [ -n "$SSH_CONNECTION" ]; then ## SSH user
-    ps1_host_color=$yellow
-else
-    ps1_host_color=$green
-fi
-
-
-# load custom fancy prompt stuff to override the prev 4 variables/functions
-if [ -f ~/.bashrc.ps1-overrides ]; then
-    . ~/.bashrc.ps1-overrides
-fi
-
 # bash completion
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
@@ -109,37 +53,7 @@ elif [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
     . /usr/local/etc/bash_completion.d/git-prompt.sh
 elif [ -f /usr/local/etc/bash_completion.d/git-completion.sh ]; then
     . /usr/local/etc/bash_completion.d/git-completion.sh
-else
-    function __git_ps1 { true; }
 fi
-
-# __git_ps1 options
-export GIT_PS1_SHOWDIRTYSTATE=true
-export GIT_PS1_SHOWUNTRACKEDFILES=true
-
-function retcode () {
-    RET=$?
-    if [ $RET -ne 0 ]; then
-        echo "↳ $RET "
-    fi
-}
-function __venv () {
-    if ! [ -z "$VIRTUAL_ENV" ]; then
-        echo -e "($(basename "$VIRTUAL_ENV")) "
-    fi
-}
-VIRTUAL_ENV_DISABLE_PROMPT=true
-
-#actual prompt (explicitly set black [andbold] background for white teminals)
-#staticaly set host color, dynamicaly set dir color
-PS1="\[$bold$bg_black$red\]\$(retcode)\[$magenta\]\$(__venv)\[$ps1_host_color\]\u@\h \[\$(ps1_dir_color)\]\W\[$magenta\]\$(__git_ps1)\[$white\] \$\[$reset\] "
-
-# terminal title
-case $TERM in
-    xterm*|rxvt*|Eterm) PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"' ;;
-    screen) PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"' ;;
-esac
-
 
 
 ## setup directory shortcuts
@@ -220,3 +134,8 @@ if [ -f ~/.bashrc.local_ext ]; then
 fi
 
 export CDPATH=$HOME/code
+
+LP_USER_ALWAYS=0
+LP_SHOW_DIFF=0
+LP_SHORT_PATH=1
+. ~/.liquidprompt/liquidprompt
