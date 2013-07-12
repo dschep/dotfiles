@@ -19,7 +19,7 @@ eval $(ssh-agent)
 
 
 keepassx &
-owncloud &
+$HOME/.CloudStation/CloudStation-app/bin/syno-cloud-linux &
 nm-applet &
 
 
