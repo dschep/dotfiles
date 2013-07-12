@@ -56,18 +56,6 @@ elif [ -f /usr/local/etc/bash_completion.d/git-completion.sh ]; then
 fi
 
 
-## setup directory shortcuts
-if [ -f ~/.bashrc.dirshortcuts ]; then
-    for dir in $(grep -E -v '^#' ~/.bashrc.dirshortcuts); do
-        name=${dir%=*}
-        dest=${dir#*=}
-
-        eval $name=$dest
-        alias c$name='cd $'$name
-    done
-fi
-
-
 #for ls:
 type -p dircolors > /dev/null && eval $(dircolors -b)
 
