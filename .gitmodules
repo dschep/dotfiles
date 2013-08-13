@@ -36,4 +36,4 @@
 	url = git://github.com/ciaranm/detectindent.git
 [submodule "bash/liquidprompt"]
 	path = bash/liquidprompt
-	url = git@github.com:dschep/liquidprompt
+	url = git://github.com/dschep/liquidprompt
