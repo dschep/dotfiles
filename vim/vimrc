@@ -163,6 +163,12 @@ set wildignore+=*.pyc
 
 
 """
+""" ENV customization
+"""
+set cdpath=~/code
+
+
+"""
 """ MiniBufExpl colors
 """
 hi MBENormal               guifg=#808080 guibg=fg
