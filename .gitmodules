@@ -37,3 +37,6 @@
 [submodule "bash/liquidprompt"]
 	path = bash/liquidprompt
 	url = git://github.com/dschep/liquidprompt
+[submodule "vim/vim/bundle/minibufexpl.vim"]
+	path = vim/vim/bundle/minibufexpl.vim
+	url = git://github.com/fholgado/minibufexpl.vim.git

@@ -29,8 +29,8 @@ elseif has("win32")
     nnoremap <F5> :w\|!%<CR>
 endif
 " ctrl h/l to change tabs
-map <C-h> :tabp<cr>
-map <C-l> :tabn<cr>
+map <C-h> :MBEbp<cr>
+map <C-l> :MBEbn<cr>
 
 
 """
@@ -158,3 +158,14 @@ if 'VIRTUAL_ENV' in os.environ:
     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
     execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+
+"""
+""" MiniBufExpl colors
+"""
+hi MBENormal               guifg=#808080 guibg=fg
+hi MBEChanged              guifg=#CD5907 guibg=fg
+hi MBEVisibleNormal        guifg=#5DC2D6 guibg=fg
+hi MBEVisibleChanged       guifg=#F1266F guibg=fg
+hi MBEVisibleActiveNormal  guifg=#A6DB29 guibg=fg
+hi MBEVisibleActiveChanged guifg=#F1266F guibg=fg
