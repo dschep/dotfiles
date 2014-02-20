@@ -29,8 +29,8 @@ elseif has("win32")
     nnoremap <F5> :w\|!%<CR>
 endif
 " ctrl h/l to change tabs
-map <C-h> :MBEbp<cr>
-map <C-l> :MBEbn<cr>
+map <C-j> :MBEbp<cr>
+map <C-k> :MBEbn<cr>
 
 
 """
