@@ -137,7 +137,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 " ctrl-p much smaller max depth
 let g:ctrlp_max_depth = 10
 " ctrl-p <c-y> opens tab
-let g:ctrlp_open_new_file = 't'
+let g:ctrlp_open_new_file = 'r'
 " auto detect indent type
 autocmd BufReadPost * :DetectIndent
 " prefer spaces
