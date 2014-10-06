@@ -94,15 +94,6 @@ else
     alias x='tar xvf'
 fi
 
-
-# gui man viewer!
-function gman {
-    tmpfile=$(mktemp)
-    man -t $1 > $tmpfile
-    evince --sm-disable $tmpfile
-    rm $tmpfile
-}
-
 # simple way to do reverse ssh tunnels
 function rssh-proxy () {
     host=${2%:*}
