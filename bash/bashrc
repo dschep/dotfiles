@@ -47,6 +47,8 @@ bind -m vi-insert "\C-l":clear-screen
 # bash completion
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+elif [ -f /etc/bash_completion.d/vagrant ]; then
+    . /etc/bash_completion.d/vagrant
 elif [ -f /etc/bash_completion.d/git ]; then
     . /etc/bash_completion.d/git
 elif [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
