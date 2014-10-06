@@ -85,29 +85,14 @@ if ! type -P feh &> /dev/null; then #use whatever gnome wants when no feh
 fi
 
 #short cuts
-alias c=cd
-alias ,='cd -'
-alias ..='cd ..'
-
-alias pu=pushd
-alias po=popd
-
-alias l=ls
 alias ll='ls -l'
 alias la='ls -la'
-
-alias v=$EDITOR
-
-alias r=rm
-alias rr='rm -r'
 
 if [ $(type -p dtrx) ]; then
     alias x=dtrx
 else
     alias x='tar xvf'
 fi
-
-alias s=ssh
 
 
 # gui man viewer!
