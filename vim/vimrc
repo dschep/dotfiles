@@ -166,7 +166,7 @@ set wildignore+=*.pyc
 """
 """ ENV customization
 """
-set cdpath=~/code
+set cdpath=,~/code
 
 
 """
