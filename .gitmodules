@@ -1,45 +1,6 @@
-[submodule "vim/vim/bundle/vim-pathogen"]
-	path = vim/vim/bundle/vim-pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-[submodule "vim/vim/bundle/vim-fugitive"]
-	path = vim/vim/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "vim/vim/bundle/delmitmate"]
-	path = vim/vim/bundle/delmitmate
-	url = git://github.com/Raimondi/delimitMate.git
-[submodule "vim/vim/bundle/ack.vim"]
-	path = vim/vim/bundle/ack.vim
-	url = git://github.com/mileszs/ack.vim.git
-[submodule "vim/vim/bundle/json-vim"]
-	path = vim/vim/bundle/json-vim
-	url = git://github.com/vim-scripts/JSON.vim.git
-[submodule "vim/vim/bundle/ctrlp"]
-	path = vim/vim/bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim.git
-[submodule "vim/vim/bundle/vim-powerline"]
-	path = vim/vim/bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
-[submodule "vim/vim/bundle/MatchTag"]
-	path = vim/vim/bundle/MatchTag
-	url = git://github.com/gregsexton/MatchTag.git
-[submodule "vim/vim/bundle/syntastic"]
-	path = vim/vim/bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
-[submodule "vim/vim/bundle/zenburn"]
-	path = vim/vim/bundle/zenburn
-	url = https://github.com/jnurmine/Zenburn.git
-[submodule "vim/vim/bundle/nerdtree"]
-	path = vim/vim/bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
-[submodule "vim/vim/bundle/detectindent"]
-	path = vim/vim/bundle/detectindent
-	url = git://github.com/ciaranm/detectindent.git
 [submodule "bash/liquidprompt"]
 	path = bash/liquidprompt
 	url = git://github.com/dschep/liquidprompt
-[submodule "vim/vim/bundle/minibufexpl.vim"]
-	path = vim/vim/bundle/minibufexpl.vim
-	url = git://github.com/fholgado/minibufexpl.vim.git
-[submodule "vim/vim/bundle/python-mode"]
-	path = vim/vim/bundle/python-mode
-	url = git://github.com/klen/python-mode.git
+[submodule "vim/vim/bundle/Vundle.vim"]
+	path = vim/vim/bundle/Vundle.vim
+	url = git://github.com/gmarik/Vundle.vim.git

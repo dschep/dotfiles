@@ -1,12 +1,26 @@
 set nocompatible
 
 """
-""" Pathogen
+""" Vundle
 """
-source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
+Plugin 'tpope/vim-fugitive'
+Plugin 'Raimondi/delimitMate'
+Plugin 'mileszs/ack.vim'
+Plugin 'vim-scripts/JSON.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'gregsexton/MatchTag'
+Plugin 'scrooloose/syntastic'
+Plugin 'jnurmine/Zenburn'
+Plugin 'scrooloose/nerdtree'
+Plugin 'ciaranm/detectindent'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'klen/python-mode'
+
+call vundle#end()
 
 """
 """ Key mappings
