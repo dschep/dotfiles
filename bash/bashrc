@@ -97,10 +97,12 @@ fi
 
 export CDPATH=$HOME/code
 
+### Added some software
+[ -d /usr/local/heroku/bin ] && export PATH="/usr/local/heroku/bin:$PATH"
+[ -s /usr/local/bin/virtualenvwrapper.sh ] && . /usr/local/bin/virtualenvwrapper.sh
+[ -s $HOME/.pythonz/etc/bashrc ] && source $HOME/.pythonz/etc/bashrc
+
 LP_USER_ALWAYS=0
 LP_SHOW_DIFF=0
 LP_SHORT_PATH=1
 . ~/.liquidprompt/liquidprompt
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
