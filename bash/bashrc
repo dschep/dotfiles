@@ -8,17 +8,10 @@
 ###choose editor
 if type -P vim &> /dev/null; then
     export EDITOR='vim -p'
-    alias vi=vim
 elif type -P vi &> /dev/null; then
     export EDITOR=vi
-    alias vim=vi
-elif type -P emacs &> /dev/null; then
-    export EDITOR=emacs
-    alias vim=emacs
-    alias vi=emacs
-    echo 'Editor set to emacs. Make sure to use/setup <m-x>viper'
 else
-    echo 'No suitable editor found.'
+    echo 'Vi/Vim not found, EDITOR not set'
 fi
 
 ###choose pager
@@ -26,7 +19,6 @@ if type -P less &> /dev/null; then
     export PAGER=less
 else
     export PAGER=more
-    alias less=more
 fi
 
 ###ubuntu calls ack ack-grep
