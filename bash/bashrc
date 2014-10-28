@@ -73,12 +73,6 @@ fi
 #common mistakes
 alias cd..='cd ..'
 
-#compensate for missing software
-if ! type -P feh &> /dev/null; then #use whatever gnome wants when no feh
-    alias feh=gnome-open
-    # TODO, use gnome-open,xdg-open, etc??
-fi
-
 #short cuts
 alias ll='ls -l'
 alias la='ls -la'
