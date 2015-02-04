@@ -8,16 +8,6 @@ require("beautiful")
 --require("naughty")
 require("eminent")
 
--- Override awesome.quit when we're using GNOME
-_awesome_quit = awesome.quit
-awesome.quit = function()
-    if os.getenv("DESKTOP_SESSION") == "Lubuntu-Awesome" then
-		awful.util.spawn("lxsession-logout")
-    else
-	_awesome_quit()
-    end
-end
-
 -- Load freedesktop.org menu entries
 require("freedesktop.menu")
 
@@ -250,7 +240,7 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.util.spawn("lxlock") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
-    awful.key({ modkey, "Shift"   }, "q",     function () awful.util.spawn("lxsession-logout") end),
+    awful.key({ modkey, "Shift"   }, "q",     awesome.quit),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
