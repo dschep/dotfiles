@@ -81,11 +81,19 @@ layouts =
 -- }}}
 
 -- {{{ Tags
--- Define a tag table which hold all screen tags.
-tags = {}
+-- Define a tag table which will hold all screen tags.
+tags = {
+  names  = { "1:dev-www", "2:dev", "3:scr", "4:scr", "5:scr", "6:scr", "7:chat", "8:work", "9:prsnl" },
+  layout = { layouts[1], layouts[1], layouts[1], layouts[1], layouts[1],
+             layouts[1], layouts[10], layouts[1], layouts[1]
+}}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+    if s == 1 then
+        tags[s] = awful.tag(tags.names, s, tags.layout)
+    else
+        tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[1])
+   end
 end
 -- }}}
 
@@ -264,7 +272,16 @@ globalkeys = awful.util.table.join(
                   mypromptbox[mouse.screen].widget,
                   awful.util.eval, nil,
                   awful.util.getdir("cache") .. "/history_eval")
-              end)
+              end),
+
+     awful.key({ modkey, "Shift", }, "t",
+               function ()
+                   awful.prompt.run({ prompt = "Rename tab: ", text = awful.tag.selected().name, },
+                                    mypromptbox[mouse.screen].widget,
+                                    function (s)
+                                        awful.tag.selected().name = s
+                                    end)
+               end)
 )
 
 clientkeys = awful.util.table.join(
@@ -345,17 +362,27 @@ awful.rules.rules = {
                      focus = true,
                      keys = clientkeys,
                      buttons = clientbuttons } },
-    { rule = { class = "MPlayer" },
+    -- floated windows
+    { rule_any = { class = {"MPlayer", "plugin-container", "Plugin-container" } },
       properties = { floating = true } },
-    { rule = { instance = "plugin-container" },
-      properties = { floating = true } },
-    { rule = { class = "pinentry" },
-      properties = { floating = true } },
-    { rule = { class = "gimp" },
-      properties = { floating = true } },
-    -- Set Firefox to always map on tags number 2 of screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { tag = tags[1][2] } },
+
+     -- Dev browser on 1
+     { rule = { instance = "Chromium-browser (/home/dschep/.config/chromium-dev)" },
+       properties = { tag = tags[1][1] } },
+     -- work vim & terms on 2, terms as slave
+     { rule_any = { class = {"workvim", "workterm"} },
+       properties = { tag = tags[1][2] } },
+     { rule = { class = "workterm" },
+       callback = awful.client.setslave },
+     -- chat browser apps on 7
+     { rule_any = { instance = {"celerity.hipchat.com__chat", "socialcode.hipchat.com__chat"} },
+       properties = { tag = tags[1][7] } },
+     -- work browser on 8
+     { rule = { instance = "Chromium-browser" },
+       properties = { tag = tags[1][8] } },
+     -- personal browser on 8
+     { rule = { class = "Firefox" },
+       properties = { tag = tags[1][9] } },
 }
 -- }}}
 
