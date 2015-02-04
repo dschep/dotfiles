@@ -1,0 +1,24 @@
+# Daemons
+blueman-applet &
+nm-applet &
+xfce4-volumed &
+xfce4-power-manager
+light-locker &
+syndaemon -i1 -k -d
+parcellite &
+synology-cloud-station start
+
+# touchpad options
+synclient ClickPad=0 ClickFinger1=1 ClickFinger2=3 ClickFinger3=2 TapButton1=0 TapButton2=0 TapButton3=0 HorizTwoFingerScroll=1 VertEdgeScroll=0
+
+# browsers
+firefox-mozilla &
+chromium-browser &
+chromium-browser --user-data-dir=/home/dschep/.config/chromium-dev &
+chromium-browser --app=http://celerity.hipchat.com/chat --user-data-dir=$HOME/.config/chromium-hipchat-celerity &
+chromium-browser --app=http://socialcode.hipchat.com/chat --user-data-dir=$HOME/.config/chromium-hipchat-socialcode &
+
+# coding
+gnome-terminal --disable-factory --class=workterm &
+gnome-terminal --disable-factory --class=workterm &
+gvim --class=workvim &
