@@ -6,6 +6,7 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 --require("naughty")
+require("eminent")
 
 -- Override awesome.quit when we're using GNOME
 _awesome_quit = awesome.quit
